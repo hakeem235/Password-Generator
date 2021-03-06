@@ -10,10 +10,10 @@ var upperCasesCharacter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  if(password){
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
@@ -28,7 +28,7 @@ function getPasswordOptions() {
 
     alert("Please select number between 8 - 128");
     return;
-  }
+  } 
   // Check if the user input is Number or Letter 
   if (isNaN(passwordLength)) {
     alert("Please select Number ");
@@ -62,7 +62,10 @@ function generatePassword() {
   var savePasswerd = [];
   var possibleChars = [];
   var definitiveChars = [];
-  console.log(options)
+  if (!options){
+    return;
+  }
+
   // check for special Caracters
   if (options.special) {
     possibleChars = possibleChars.concat(specialCharacters);
