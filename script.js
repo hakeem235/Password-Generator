@@ -1,5 +1,5 @@
 
-// // Assignment Code
+//  Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 var specialCharacters = ["@", "#", "$", "%", "^", "&", "*", "(", ")","!","-","_","=","+","/","?",">","<",":","`","~","|"];
@@ -47,7 +47,7 @@ function getPasswordOptions() {
     numbers: numbers,
     special: special,
   };
-  // console.log(passwordChoic);
+
   return passwordChoic;
 }
 
@@ -62,6 +62,7 @@ function generatePassword() {
   var savePasswerd = [];
   var possibleChars = [];
   var definitiveChars = [];
+  console.log(options)
   // check for special Caracters
   if (options.special) {
     possibleChars = possibleChars.concat(specialCharacters);
@@ -91,5 +92,5 @@ function generatePassword() {
     savePasswerd[i] = definitiveChars[i];
   }
 
-   console.log(savePasswerd)
+   return savePasswerd.join("")
 }
