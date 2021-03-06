@@ -1,7 +1,8 @@
 
 // // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var specialCharacters = ["@", "#", "$", "%", "^", "&", "*", "(", ")"];
+
+var specialCharacters = ["@", "#", "$", "%", "^", "&", "*", "(", ")","!","-","_","=","+","/","?",">","<",":","`","~","|"];
 var numberCharacter = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var lowerCasesCharacter = ["a", "b", "c", "d", "e" , "f" , "g" , "h", "i", "j", "k" ,"l", "m", "n", "o" , "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCasesCharacter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S","T", "U","V","W","X", "Y", "Z"];
@@ -48,4 +49,47 @@ function getPasswordOptions() {
   };
   // console.log(passwordChoic);
   return passwordChoic;
+}
+
+function randomIndex(array) {
+  var index = Math.floor(Math.random() * array.length);
+  var element = array[index];
+  return element;
+}
+
+function generatePassword() {
+  var options = getPasswordOptions();
+  var savePasswerd = [];
+  var possibleChars = [];
+  var definitiveChars = [];
+  // check for special Caracters
+  if (options.special) {
+    possibleChars = possibleChars.concat(specialCharacters);
+    definitiveChars.push(randomIndex(specialCharacters));
+  }
+  // check for UpperCaes Caracters
+  if (options.upper) {
+    possibleChars = possibleChars.concat(upperCasesCharacter);
+    definitiveChars.push(randomIndex(upperCasesCharacter));
+  }
+  // check for LowerCaes Caracters
+  if (options.lower) {
+    possibleChars = possibleChars.concat(lowerCasesCharacter);
+    definitiveChars.push(randomIndex(lowerCasesCharacter));
+  }
+  // check for Number
+  if (options.numbers) {
+    possibleChars = possibleChars.concat(numberCharacter);
+    definitiveChars.push(randomIndex(numberCharacter));
+  }
+
+  for (var i = 0; i < options.length; i++) {
+    var tempChar = randomIndex(possibleChars);
+    savePasswerd.push(tempChar);
+  }
+  for (var i = 0; i < definitiveChars.length; i++) {
+    savePasswerd[i] = definitiveChars[i];
+  }
+
+   console.log(savePasswerd)
 }
