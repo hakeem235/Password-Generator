@@ -5,11 +5,11 @@
 * Screenshot
 * Deployment of application
 ##General Info
-* Password Generator was devolpe using JavaScript 
+* Password Generator was develop by using HTML, CSS and  JavaScript 
 
 ##Screenshot
 
-![](url = "Password-Generator\password_Gen.JPG")
+![screenshoot](password_Gen.JPG)
 
 ##Deployment of application
 

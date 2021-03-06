@@ -19,8 +19,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
- // Prompts that come up after you click generate password
-
+// the user will chose the length of the password 
 function getPasswordOptions() {
   var passwordLength = parseInt(prompt("Please enter the length of your new password.  It must between 8 but less than 128." ));
   // Length condtions
@@ -34,7 +33,7 @@ function getPasswordOptions() {
     alert("Please select Number ");
     return;
   }
-
+// the user will chose if he want a Numebr or UpperCase or LowerCase or Special Charctar or all of theme 
   var numbers = confirm("Do you want numbers in your password?");
   var lowerCases = confirm("Do you want lowercases in your password?");
   var upperCases = confirm("Do you want uppercases in your password?");
@@ -50,13 +49,13 @@ function getPasswordOptions() {
 
   return passwordChoic;
 }
-
+// funtion to generate random index 
 function randomIndex(array) {
   var index = Math.floor(Math.random() * array.length);
   var element = array[index];
   return element;
 }
-
+// funtion to generate the password 
 function generatePassword() {
   var options = getPasswordOptions();
   var savePasswerd = [];
